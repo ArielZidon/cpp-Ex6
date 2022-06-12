@@ -48,7 +48,22 @@ int main()
 
     nba game(t);
     game.games();
-    cout<<game;
+    cout<<"\n";
+    /***************** The top 5 teams ****************/
+    cout<<"***************** The top 5 teams ****************\n\n";
+    vector <Team> res = game.leaders(5);
+    for (size_t i = 0; i < 5; i++)
+    {
+        cout<<i+1<<") "<<res[i]<<endl;
+    }
+    cout<<"\n\n";
 
+     /***************** The longest winning streak****************/
+    cout<<"***************** The longest winning streak ****************\n\n";
+    Team longest = game.The_longest_run_of_victories();
+    cout<<longest.get_name()<<"with " <<longest.wins<<" wins in a row!!!"<<endl;
+    cout<<"\n\n";
+
+    // cout<<game;   
 
 }

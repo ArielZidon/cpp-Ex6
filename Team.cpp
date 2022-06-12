@@ -6,7 +6,9 @@ Team::Team(string name,double talent)
     this->numOfLose = 0;
     this->numOfWin = 0;
     this->stat = 0;
+    this->Wins_in_a_row = 0;
     this->name = name;
+    wins = 0;
 }
 
 string Team:: get_name()
@@ -56,8 +58,28 @@ bool operator<(const Team & t1,const Team & t2)
             return true;
     }
     return false;
-
 }
+
+void Team::win(bool w)
+{
+    if(w == 1)
+    {
+        Wins_in_a_row++;
+    }
+    else
+    {
+        if(Wins_in_a_row>wins)
+        {
+            wins = Wins_in_a_row;
+            Wins_in_a_row = 0;
+        }
+        else
+        {
+            Wins_in_a_row = 0;
+        }
+    }
+}
+
 Team::~Team()
 {
 }

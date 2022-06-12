@@ -13,6 +13,6 @@ private:
 public:
     nba(vector<Team> new_teams);
     void games();
+    friend ostream &operator<<(ostream &os,nba &g);
     ~nba();
 };
-

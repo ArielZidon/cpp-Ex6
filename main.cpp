@@ -24,28 +24,31 @@ int main()
     Team Dallas("Dallas Mavericks",0.8);
     Team Minnesota("Minnesota Timberwolves",0.4);
     Team Denver("Denver Nuggets",0.5);
-    t[0] = Boston;
-    t[1] = Brooklyn;
-    t[2] = NewYork;
-    t[3] = Philadelphia;
-    t[4] = Toronto;
-    t[5] = Chicago;
-    t[6] = Cleveland;
-    t[7] = Detroit;
-    t[8] = Indiana;
-    t[9] = Milwaukee;
-    t[10] = Atlanta;
-    t[11] = Charlotte;
-    t[12] = Miami;
-    t[13] = Orlando;
-    t[14] = Washington;
-    t[15] = Golden;
-    t[16] = LosAngeles;
-    t[17] = Dallas;
-    t[18] = Minnesota;
-    t[19] = Denver;
-
+    
+    t.push_back(Boston);
+    t.push_back(Brooklyn);
+    t.push_back(NewYork);
+    t.push_back(Philadelphia);
+    t.push_back(Toronto);
+    t.push_back(Chicago);
+    t.push_back(Cleveland);
+    t.push_back(Detroit);
+    t.push_back(Indiana);
+    t.push_back(Milwaukee);
+    t.push_back(Atlanta);
+    t.push_back(Charlotte);
+    t.push_back(Miami);
+    t.push_back(Orlando);
+    t.push_back(Washington);
+    t.push_back(Golden);
+    t.push_back(LosAngeles);
+    t.push_back(Dallas);
+    t.push_back(Minnesota);
+    t.push_back(Denver);
 
     nba game(t);
+    game.games();
+    cout<<game;
+
 
 }

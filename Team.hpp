@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#define  RAND_MAX 1
 
 using namespace std;
 class Team
@@ -23,6 +22,8 @@ public:
     void set_name(string name);
     double get_talent();
     void set_talent();
+    bool operator<(const Team & t);
+    friend bool operator<(const Team & t1,const Team & t2);
     friend ostream &operator<<(ostream &os,Team &t);
     ~Team();
 };

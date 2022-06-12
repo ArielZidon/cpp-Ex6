@@ -26,11 +26,38 @@ double Team::get_talent()
 
 ostream &operator<<(ostream &os,Team &t)
 {
-    os << t.get_name()<<"  W: "<<t.numOfWin<<"  L:"<<t.numOfLose<<endl;
+    os << t.get_name()<<"  W: "<<t.numOfWin<<"  L: "<<t.numOfLose<<"  STAT: "<<t.points<<endl;
     return os;    
 }
 
+bool Team::operator<(const Team & t)
+{
+    if (numOfWin>t.numOfWin)
+    {
+        return true;
+    }
+    else if (numOfWin == t.numOfWin)
+    {
+        if(points>t.points)
+            return true;
+    }
+    return false;
+}
 
+bool operator<(const Team & t1,const Team & t2)
+{
+    if (t1.numOfWin>t2.numOfWin)
+    {
+        return true;
+    }
+    else if (t1.numOfWin == t2.numOfWin)
+    {
+        if(t1.points>t2.points)
+            return true;
+    }
+    return false;
+
+}
 Team::~Team()
 {
 }

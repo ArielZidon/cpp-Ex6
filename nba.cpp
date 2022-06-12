@@ -1,4 +1,5 @@
 #include "nba.hpp"
+#include <bits/stdc++.h>
  using namespace std;
  
  
@@ -7,7 +8,7 @@ nba::nba(vector<Team> new_teams)
 
     for (size_t i = 0; i < 20; i++)
     {
-        this->teams[i] = new_teams[i]; 
+        this->teams.push_back(new_teams[i]); 
     }
     
 }
@@ -23,8 +24,8 @@ void nba::games()
         {
             if(home->get_name() != teams[i].get_name())
             {
-                int x = home->points = ((rand() % 50) + 55);
-                int y = this->teams[i].points = ((rand() % 50) + 50);
+                int x = home->points = ((rand() % 50) + 55) + (home->get_talent()*10);
+                int y = this->teams[i].points = ((rand() % 50) + 50) + (this->teams[i].get_talent()*10);
 
                 if( x >= y)
                 {
@@ -37,10 +38,27 @@ void nba::games()
                     home->numOfLose++;
                     this->teams[i].numOfWin++;
                 }
+                home->points+=x;
+                home->points-=y;
+
+                this->teams[i].points +=y;
+                this->teams[i].points-=x;
             }
         }
         
     }
+    sort(teams.begin(), teams.end());
+}
+
+ostream &operator<<(ostream &os,nba &g)
+{
+    os<< "NBA LEAGUE: \n"<<endl;
+    for (size_t i = 0; i < 20; i++)
+    {  
+        os<<i+1<<") ";
+        os<<g.teams[i]<<endl;
+    }
+    return os;
     
 }
 
